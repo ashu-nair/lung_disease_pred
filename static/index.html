@@ -21,7 +21,7 @@
 <div class="section">
   <h2>CT Scan Prediction</h2>
   <input type="file" id="ctFile">
-  <button onclick="predictCT()">Predict CT</button>
+  <button type="button" onclick="predictCT()">Predict CT</button>
 
   <div id="ctResult" class="result"></div>
   <img id="ctImage">
@@ -32,13 +32,15 @@
 <div class="section">
   <h2>X-ray Prediction</h2>
   <input type="file" id="xrayFile">
-  <button onclick="predictXray()">Predict X-ray</button>
+  <button type="button" onclick="predictXray()">Predict X-ray</button>
 
   <div id="xrayResult" class="result"></div>
   <img id="xrayImage">
 </div>
 
 <script>
+console.log("JS loaded"); // debug line
+
 async function predictCT() {
   const fileInput = document.getElementById("ctFile");
   if (!fileInput.files.length) {
@@ -60,8 +62,8 @@ async function predictCT() {
   document.getElementById("ctResult").innerText =
     `${data.prediction} (${confidence}%)`;
 
-  const imgURL = URL.createObjectURL(fileInput.files[0]);
-  document.getElementById("ctImage").src = imgURL;
+  document.getElementById("ctImage").src =
+    URL.createObjectURL(fileInput.files[0]);
 }
 
 async function predictXray() {
@@ -85,8 +87,8 @@ async function predictXray() {
   document.getElementById("xrayResult").innerText =
     `${data.prediction} (${confidence}%)`;
 
-  const imgURL = URL.createObjectURL(fileInput.files[0]);
-  document.getElementById("xrayImage").src = imgURL;
+  document.getElementById("xrayImage").src =
+    URL.createObjectURL(fileInput.files[0]);
 }
 </script>
 
