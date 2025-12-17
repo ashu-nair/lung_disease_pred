@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Medical AI Demo</title>
+</head>
+<body>
+  <h2>CT Scan Prediction</h2>
+  <form action="/predict/ct" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" required>
+    <button type="submit">Predict CT</button>
+  </form>
+
+  <h2>X-ray Prediction</h2>
+  <form action="/predict/xray" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" required>
+    <button type="submit">Predict X-ray</button>
+  </form>
+</body>
+</html>
