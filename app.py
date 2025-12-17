@@ -12,8 +12,15 @@ app = FastAPI()
 ct_model = tf.keras.models.load_model("models/ct_model.keras")
 xray_model = tf.keras.models.load_model("models/xray.keras")
 
-CT_CLASSES = ["Benign", "Malignant", "Normal"]
-XRAY_CLASSES = ["Covid", "Tuberculosis", "Pneumonia", "Normal"]
+CT_CLASSES = ['Bengin cases', 'Malignant cases', 'Normal cases']
+
+XRAY_CLASSES = [
+    'Corona Virus Disease',
+    'Normal',
+    'Pneumonia',
+    'Tuberculosis'
+]
+
 
 @app.get("/", response_class=HTMLResponse)
 def home():
